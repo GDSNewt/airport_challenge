@@ -1,10 +1,9 @@
 class Airport
   attr_reader :hangar
   DEFAULT_CAPACITY = 10
-  require 'set'
 
   def initialize(capacity = DEFAULT_CAPACITY)
-    @hangar = Set.new
+    @hangar = []
     @capacity = capacity
   end
 
@@ -15,7 +14,12 @@ class Airport
     end
   end
 
-
+  def take_off(x)
+    if empty?
+    elsif
+      @hangar.delete_at(x)
+    end
+  end
 
   def show
     print @hangar

@@ -7,8 +7,14 @@ describe Airport do
 
   it {is_expected.to respond_to(:land)}
 
-  it 'adds a plane to the hanger set when #land is called' do
+  it 'adds a plane to the hanger array when #land is called' do
     airport.land(plane)
     expect(airport.hangar.length).to eq 1
+  end
+
+  it "should check that a plane has taken off" do
+    airport.land(plane)
+    airport.take_off(0)
+    expect(airport.hangar.length).to eq 0
   end
 end
