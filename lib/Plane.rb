@@ -23,19 +23,3 @@ end
 #   end
 #
 # end
-#
-# def release_bike
-#   if empty?
-#   else
-#     @bikes.pop
-#   end
-# end
-#
-# def dock_bike (bike)
-#   if full?
-#   elsif bike.is_working
-#     @bikes << bike
-#   else
-#     @broken_bikes << bike
-#   end
-# end
