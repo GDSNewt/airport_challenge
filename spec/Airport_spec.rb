@@ -1,5 +1,6 @@
 require 'Airport.rb'
 require 'Plane.rb'
+require 'Weather.rb'
 
 describe Airport do
 	let(:plane) {plane = Plane.new}
@@ -17,4 +18,10 @@ describe Airport do
     airport.take_off(0)
     expect(airport.hangar.length).to eq 0
   end
+
+	it "should check that a plane is not already at the airport" do
+		plane1 = Plane.new
+		airport.land(plane1)
+		expect{ airport.land(plane1) }.to raise_error("That plane is already in the hanger")
+	end
 end

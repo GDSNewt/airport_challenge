@@ -5,10 +5,13 @@ class Airport
   def initialize(capacity = DEFAULT_CAPACITY)
     @hangar = []
     @capacity = capacity
+    @weather = Weather.new
   end
 
   def land(plane)
-    if full?
+    if @weather.stormy?
+    elsif duplicate?(plane)
+    elsif full?
     elsif
       @hangar << plane
     end
@@ -36,6 +39,12 @@ class Airport
   def empty?
     if self.hangar.empty?
       raise "No planes waiting to take off"
+    end
+  end
+
+  def duplicate?(plane)
+    if self.hangar.include? plane
+      raise "That plane is already in the hanger"
     end
   end
 end
